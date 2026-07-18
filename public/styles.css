@@ -134,17 +134,19 @@ body {
   position: relative; width: min(400px, 80vw); aspect-ratio: 1;
   margin-inline: auto;
 }
-/* Static rings — decorative circles, no rotation */
+/* Rings rotate very slowly — calm, ambient motion */
 .ring-dashed {
   position: absolute; inset: 0; border-radius: 50%;
   border: 1.5px dashed color-mix(in srgb, var(--accent) 30%, transparent);
+  animation: spin 150s linear infinite reverse;
 }
 .orbit {
   position: absolute; border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  animation: spin 90s linear infinite;
 }
 .orbit-1 { inset: 9%; }
-.orbit-2 { inset: 23%; transform: rotate(130deg); }
+.orbit-2 { inset: 23%; animation-duration: 70s; animation-direction: reverse; }
 .sat {
   position: absolute; width: 13px; height: 13px; border-radius: 50%;
   background: var(--accent);
@@ -161,7 +163,7 @@ body {
 .core::after {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
   border: 1px solid var(--accent);
-  animation: ping 2.8s ease-out infinite;
+  animation: ping 4.5s ease-out infinite;
 }
 .chip {
   position: absolute; z-index: 2;
@@ -170,13 +172,14 @@ body {
   background: var(--card); border: 1px solid var(--border);
   color: var(--text-dim);
   box-shadow: 0 8px 22px color-mix(in srgb, #000 22%, transparent);
-  animation: floaty 6s ease-in-out infinite;
+  animation: floaty 10s ease-in-out infinite;
 }
 .chip-1 { top: 7%; left: 0; }
 .chip-2 { top: 24%; right: -3%; animation-delay: -1.6s; }
 .chip-3 { bottom: 20%; left: -4%; animation-delay: -3.1s; }
 .chip-4 { bottom: 4%; right: 9%; animation-delay: -4.5s; }
 
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-11px); }
@@ -274,7 +277,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .chip, .core::after { animation: none; }
+  .orbit, .ring-dashed, .chip, .core::after { animation: none; }
 }
 
 /* ---------- Error page ---------- */
