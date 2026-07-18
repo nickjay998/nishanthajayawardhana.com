@@ -134,6 +134,24 @@ body {
   position: relative; width: min(400px, 80vw); aspect-ratio: 1;
   margin-inline: auto;
 }
+/* Static rings — decorative circles, no rotation */
+.ring-dashed {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px dashed color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.orbit {
+  position: absolute; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.orbit-1 { inset: 9%; }
+.orbit-2 { inset: 23%; transform: rotate(130deg); }
+.sat {
+  position: absolute; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.sat-a { top: -7px; left: calc(50% - 6px); }
+.sat-b { bottom: 18%; left: -4px; }
 .core {
   position: absolute; inset: 35%; display: grid; place-items: center;
   border-radius: 50%; color: var(--accent);
