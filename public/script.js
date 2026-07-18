@@ -38,3 +38,20 @@ if ("IntersectionObserver" in window) {
 // Footer year
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+
+// Dark/light theme toggle (dark is default; choice persisted per browser)
+const themeToggle = document.querySelector(".theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const root = document.documentElement;
+    const toLight = root.getAttribute("data-theme") !== "light";
+    if (toLight) {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    try {
+      localStorage.setItem("theme", toLight ? "light" : "dark");
+    } catch (e) { /* storage blocked: theme still applies this visit */ }
+  });
+}

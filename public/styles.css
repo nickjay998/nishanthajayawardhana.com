@@ -4,8 +4,26 @@
    ============================================================ */
 
 /* Palette adapted from the Blocksy theme demo the owner likes:
-   blue #2872fa / #1559ed, slate #1d2b35 / #344048, light #e1e8ed–#FAFBFC */
+   blue #2872fa / #1559ed, slate #1d2b35 / #344048, light #e1e8ed–#FAFBFC.
+   Dark is the default; the footer toggle switches to light (persisted). */
 :root {
+  color-scheme: dark;
+  --bg: #131e28;
+  --bg-soft: #1d2b35;
+  --card: #1d2b35;
+  --border: #344048;
+  --text: #e9eff4;
+  --text-dim: #9fb0bd;
+  --accent: #6ba0ff;
+  --accent-strong: #2872fa;
+  --btn-text: #ffffff;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
   --bg: #FAFBFC;
   --bg-soft: #f2f5f7;
   --card: #ffffff;
@@ -15,23 +33,6 @@
   --accent: #2872fa;
   --accent-strong: #1559ed;
   --btn-text: #ffffff;
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #131e28;
-    --bg-soft: #1d2b35;
-    --card: #1d2b35;
-    --border: #344048;
-    --text: #e9eff4;
-    --text-dim: #9fb0bd;
-    --accent: #6ba0ff;
-    --accent-strong: #2872fa;
-    --btn-text: #ffffff;
-  }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -186,8 +187,21 @@ body {
 
 .site-footer {
   border-top: 1px solid var(--border); padding: 1.75rem 0;
-  text-align: center; color: var(--text-dim); font-size: 0.85rem;
+  color: var(--text-dim); font-size: 0.85rem;
 }
+.footer-inner {
+  display: flex; justify-content: center; align-items: center; gap: 0.9rem;
+}
+.theme-toggle {
+  display: grid; place-items: center; padding: 7px;
+  background: none; border: 1px solid var(--border); border-radius: 9px;
+  color: var(--text-dim); cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover, .theme-toggle:focus-visible { color: var(--accent); border-color: var(--accent); }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
