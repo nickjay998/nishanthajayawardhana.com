@@ -189,8 +189,8 @@ body {
 }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .hero-visual { width: min(300px, 78vw); }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
 }
 
 /* ---------- Sections ---------- */
