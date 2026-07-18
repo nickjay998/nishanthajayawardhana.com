@@ -138,15 +138,15 @@ body {
 .ring-dashed {
   position: absolute; inset: 0; border-radius: 50%;
   border: 1.5px dashed color-mix(in srgb, var(--accent) 30%, transparent);
-  animation: spin 150s linear infinite reverse;
+  animation: spin 300s linear infinite reverse;
 }
 .orbit {
   position: absolute; border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-  animation: spin 90s linear infinite;
+  animation: spin 180s linear infinite;
 }
 .orbit-1 { inset: 9%; }
-.orbit-2 { inset: 23%; animation-duration: 70s; animation-direction: reverse; }
+.orbit-2 { inset: 23%; animation-duration: 140s; animation-direction: reverse; }
 .sat {
   position: absolute; width: 13px; height: 13px; border-radius: 50%;
   background: var(--accent);
@@ -163,7 +163,7 @@ body {
 .core::after {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
   border: 1px solid var(--accent);
-  animation: ping 4.5s ease-out infinite;
+  animation: ping 7s ease-out infinite;
 }
 .chip {
   position: absolute; z-index: 2;
@@ -172,7 +172,7 @@ body {
   background: var(--card); border: 1px solid var(--border);
   color: var(--text-dim);
   box-shadow: 0 8px 22px color-mix(in srgb, #000 22%, transparent);
-  animation: floaty 10s ease-in-out infinite;
+  animation: floaty 16s ease-in-out infinite;
 }
 .chip-1 { top: 7%; left: 0; }
 .chip-2 { top: 24%; right: -3%; animation-delay: -1.6s; }
