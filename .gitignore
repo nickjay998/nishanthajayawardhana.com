@@ -5,3 +5,7 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+
+# Saved design-reference pages (not part of the site)
+Codespot - Blocksy.html
+Codespot - Blocksy_files/

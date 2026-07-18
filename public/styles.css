@@ -3,30 +3,34 @@
    Modern dark theme, system fonts only (CSP-friendly, no CDNs)
    ============================================================ */
 
+/* Palette adapted from the Blocksy theme demo the owner likes:
+   blue #2872fa / #1559ed, slate #1d2b35 / #344048, light #e1e8ed–#FAFBFC */
 :root {
-  --bg: #0b1120;
-  --bg-soft: #111a2e;
-  --card: #14203a;
-  --border: #22304d;
-  --text: #dbe4f5;
-  --text-dim: #8b9bb8;
-  --accent: #4fd1c5;
-  --accent-strong: #2dd4bf;
+  --bg: #FAFBFC;
+  --bg-soft: #f2f5f7;
+  --card: #ffffff;
+  --border: #e1e8ed;
+  --text: #1d2b35;
+  --text-dim: #566470;
+  --accent: #2872fa;
+  --accent-strong: #1559ed;
+  --btn-text: #ffffff;
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #f6f8fc;
-    --bg-soft: #eef2f9;
-    --card: #ffffff;
-    --border: #d9e1ef;
-    --text: #16233c;
-    --text-dim: #5b6b88;
-    --accent: #0d9488;
-    --accent-strong: #0f766e;
+    --bg: #131e28;
+    --bg-soft: #1d2b35;
+    --card: #1d2b35;
+    --border: #344048;
+    --text: #e9eff4;
+    --text-dim: #9fb0bd;
+    --accent: #6ba0ff;
+    --accent-strong: #2872fa;
+    --btn-text: #ffffff;
   }
 }
 
@@ -48,7 +52,7 @@ body {
 /* ---------- Accessibility ---------- */
 .skip-link {
   position: absolute; left: -999px; top: 0;
-  background: var(--accent); color: #06281f;
+  background: var(--accent); color: var(--btn-text);
   padding: 0.5rem 1rem; z-index: 100; border-radius: 0 0 8px 0;
 }
 .skip-link:focus { left: 0; }
@@ -78,7 +82,7 @@ body {
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px;
-  background: var(--accent); color: #06281f !important; font-weight: 600;
+  background: var(--accent); color: var(--btn-text) !important; font-weight: 600;
   text-decoration: none; border: 1px solid transparent;
   transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
 }
