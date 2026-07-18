@@ -185,6 +185,23 @@ body {
 .project h3 a { color: inherit; text-decoration: none; }
 .project h3 a:hover, .project h3 a:focus-visible { color: var(--accent); }
 
+/* Project status badges */
+.status {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 600;
+  padding: 0.22rem 0.75rem; border-radius: 999px; margin-bottom: 0.9rem;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.status .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: currentColor;
+}
+.status-live { color: #4ade80; }
+.status-soon { color: #fbbf24; }
+.status-dev  { color: var(--accent); }
+:root[data-theme="light"] .status-live { color: #15803d; }
+:root[data-theme="light"] .status-soon { color: #b45309; }
+
 .site-footer {
   border-top: 1px solid var(--border); padding: 1.75rem 0;
   color: var(--text-dim); font-size: 0.85rem;
