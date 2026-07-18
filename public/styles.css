@@ -125,6 +125,74 @@ body {
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+/* ---------- Hero motion graphic ---------- */
+.hero-inner {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem; align-items: center;
+}
+.hero-visual {
+  position: relative; width: min(400px, 80vw); aspect-ratio: 1;
+  margin-inline: auto;
+}
+.ring-dashed {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px dashed color-mix(in srgb, var(--accent) 30%, transparent);
+  animation: spin 60s linear infinite reverse;
+}
+.orbit {
+  position: absolute; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  animation: spin 26s linear infinite;
+}
+.orbit-1 { inset: 9%; }
+.orbit-2 { inset: 23%; animation-duration: 15s; animation-direction: reverse; }
+.sat {
+  position: absolute; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.sat-a { top: -7px; left: calc(50% - 6px); }
+.sat-b { bottom: 18%; left: -4px; }
+.core {
+  position: absolute; inset: 35%; display: grid; place-items: center;
+  border-radius: 50%; color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.core::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: ping 2.8s ease-out infinite;
+}
+.chip {
+  position: absolute; z-index: 2;
+  font-family: var(--mono); font-size: 0.72rem; white-space: nowrap;
+  padding: 0.32rem 0.75rem; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-dim);
+  box-shadow: 0 8px 22px color-mix(in srgb, #000 22%, transparent);
+  animation: floaty 6s ease-in-out infinite;
+}
+.chip-1 { top: 7%; left: 0; }
+.chip-2 { top: 24%; right: -3%; animation-delay: -1.6s; }
+.chip-3 { bottom: 20%; left: -4%; animation-delay: -3.1s; }
+.chip-4 { bottom: 4%; right: 9%; animation-delay: -4.5s; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-11px); }
+}
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  80%, 100% { transform: scale(1.7); opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { width: min(300px, 78vw); }
+}
+
 /* ---------- Sections ---------- */
 .section { padding: 5.5rem 0; }
 .section:nth-of-type(even) { background: var(--bg-soft); }
@@ -208,6 +276,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .orbit, .ring-dashed, .chip, .core::after { animation: none; }
 }
 
 /* ---------- Error page ---------- */
